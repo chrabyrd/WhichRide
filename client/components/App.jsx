@@ -1,10 +1,12 @@
 import React from 'react';
+import Map from './map/Map.jsx';
 
 export default class App extends React.Component {
   render() {
+
     return (
-      <div>
-        <h1>Hello World</h1>
+      <div style={{height: `500px`}}>
+        <Map />
       </div>
     );
   }
