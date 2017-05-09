@@ -32,7 +32,7 @@ export default class Map extends React.Component {
   }
 
   render() {
-    console.log(this.state.location);
+
     return(
       <div>
         <Geosuggest />

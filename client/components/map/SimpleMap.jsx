@@ -1,5 +1,5 @@
 import React from 'react';
-import { withGoogleMap, GoogleMap } from 'react-google-maps';
+import ReactMapboxGl, { Layer, Feature } from "react-mapbox-gl";
 
 export default class SimpleMapExample extends React.Component {
   constructor(props) {
@@ -11,27 +11,23 @@ export default class SimpleMapExample extends React.Component {
     };
   }
 
-  simpleMap() {
-
-  }
-
   render() {
-    const SimpleMap = withGoogleMap(props => (
-      <GoogleMap
-        defaultZoom={14}
-        defaultCenter={{ lat: this.state.lat, lng: this.state.lng }}
-        />
-    ));
-
     return (
-      <SimpleMap
-        containerElement={
-          <div style={{ height: `500px` }} />
-        }
-        mapElement={
-          <div style={{ height: `100%` }} />
-        }
-      />
+      <ReactMapboxGl
+        style="mapbox://styles/mapbox/streets-v9"
+        center={[this.state.lng, this.state.lat]}
+        accessToken="pk.eyJ1IjoiY2hyYWJ5cmQiLCJhIjoiY2oyaDIycnhqMDA0dTM5bGd0MHNrOWJuOCJ9.7wmnxCdcgVlBv76PRmkEaQ"
+        containerStyle={{
+          height: "500px",
+          width: "500px"
+        }}>
+        <Layer
+          type="symbol"
+          id="marker"
+          layout={{ "icon-image": "marker-15" }}>
+          <Feature coordinates={[this.state.lng, this.state.lat]}/>
+        </Layer>
+      </ReactMapboxGl>
     );
   }
 }
