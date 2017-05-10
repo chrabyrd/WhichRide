@@ -7,8 +7,8 @@ const receiveIPData = ipData => ({
   ipData
 });
 
-export const fetchIPData = ipAddress => dispatch => (
-  getIPData(ipAddress)
+export const fetchIPData = () => dispatch => (
+  getIPData()
   .then(ipData => ipData.json())
-  .then(ipData => console.log(ipData))
+  .then(ipData => dispatch(receiveIPData(ipData)))
 );

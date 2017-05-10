@@ -1,4 +1,4 @@
-export const getIPData = ipAdress => (
+export const getIPData = () => (
   fetch('http://ip-api.com/json', {
     method: 'get',
     headers: {

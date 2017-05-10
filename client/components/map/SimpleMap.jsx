@@ -21,12 +21,6 @@ export default class SimpleMapExample extends React.Component {
           height: "500px",
           width: "500px"
         }}>
-        <Layer
-          type="symbol"
-          id="marker"
-          layout={{ "icon-image": "marker-15" }}>
-          <Feature coordinates={[this.state.lng, this.state.lat]}/>
-        </Layer>
       </ReactMapboxGl>
     );
   }
