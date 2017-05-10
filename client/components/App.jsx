@@ -1,10 +1,21 @@
 import React from 'react';
-import MapContainer from './map/MapContainer.js';
+import Geosuggest from 'react-geosuggest';
+import SimpleMapContainer from './map/SimpleMapContainer.js';
 
 export default class App extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.props.fetchIPData();
+  }
+
   render() {
-    return (
-      <MapContainer />
+    return(
+      <div>
+        <Geosuggest />
+        <SimpleMapContainer />
+        <Geosuggest />
+      </div>
     );
   }
 }
