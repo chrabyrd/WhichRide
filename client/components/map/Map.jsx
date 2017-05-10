@@ -32,7 +32,7 @@ export default class Map extends React.Component {
   }
 
   render() {
-
+    this.props.fetchIPData('hi');
     return(
       <div>
         <Geosuggest />
