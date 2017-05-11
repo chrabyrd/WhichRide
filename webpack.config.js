@@ -27,6 +27,10 @@ module.exports = {
         test: /\.scss$/,
         loaders: ['style-loader', 'css-loader', 'sass-loader'],
         exclude: /node_modules/
+      }, {
+        test: /\.js?$/,
+        include: /react-geocoder/,
+        loader: 'babel-loader'
       }
     ]
   },

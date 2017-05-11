@@ -1,5 +1,6 @@
 import React from 'react';
 import Geosuggest from 'react-geosuggest';
+import Geocoder from 'react-geocoder';
 import SimpleMapContainer from './map/SimpleMapContainer.js';
 
 export default class App extends React.Component {
@@ -12,9 +13,17 @@ export default class App extends React.Component {
   render() {
     return(
       <div>
-        <Geosuggest />
+        <Geosuggest
+          onSuggestSelect={data => {
+            this.props.getStartLocation(data);
+            console.log('ho');
+          }}/>
         <SimpleMapContainer />
-        <Geosuggest />
+        <Geosuggest
+          onSuggestSelect={data => {
+            this.props.getEndLocation(data);
+            console.log('he');
+          }}/>
       </div>
     );
   }

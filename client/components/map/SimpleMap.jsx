@@ -28,6 +28,12 @@ export default class SimpleMap extends React.Component {
           height: "500px",
           width: "500px"
         }}>
+        <Layer
+          type="symbol"
+          id="marker"
+          layout={{ "icon-image": "car-15" }}>
+          <Feature coordinates={[this.state.lon, this.state.lat]}/>
+        </Layer>
       </ReactMapboxGl>
     );
   }
